@@ -12,5 +12,5 @@ weatherDescription = weatherData['weather'][0]['description']
 temp = weatherData['main']['temp_max']
 
 st.text(weatherDescription)
-st.metric(label='temperature', value= temp)
+st.metric(label='temperature (°C)', value= temp)
 
