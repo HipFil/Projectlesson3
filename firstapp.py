@@ -1,5 +1,6 @@
 import streamlit as st
 import json, requests 
+st.header('Weather Forecast')
 
 APIkey = '0a127aa062bc472c6fc8866ac02bf99c'
 location = st.radio("pick a city",('Cuneo', 'Amsterdam', 'London'))
