@@ -7,5 +7,5 @@ location = st.text_input('give me a city')
 url = 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + APIkey 
 response = requests.get(url)
 weatherData = json.loads(response.text)
-
-st.text(weatherData)
+weatherDescription = weatherData['weather'][0]['description']
+st.text(weatherDescription)
