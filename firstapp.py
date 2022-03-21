@@ -11,3 +11,4 @@ weatherData = json.loads(response.text)
 weatherDescription = weatherData['weather'][0]['description']
 st.text(weatherData['main']['temp_max'])
 st.text(weatherDescription)
+st.metric(value=weatherData['main']['temp_max'])
