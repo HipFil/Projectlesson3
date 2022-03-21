@@ -10,7 +10,7 @@ response = requests.get(url)
 weatherData = json.loads(response.text)
 weatherDescription = weatherData['weather'][0]['description']
 temp = weatherData['main']['temp_max']
-st.text(weatherData['main']['temp_max'])
+
 st.text(weatherDescription)
 st.metric(label='temperature', value= temp)
 
