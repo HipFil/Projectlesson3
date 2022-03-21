@@ -1,9 +1,11 @@
 import streamlit as st
-title = st.text_input('Gimme a movie title', 'lorem ipsum')
-st.write('The current movie title is', title)
+import json, requests 
 
-genre = st.radio("What's your favorite movie genre",('Comedy', 'Drama', 'Documentary'), help='one of the three options')
-if genre == 'Comedy':
-     st.write('You selected comedy.')
-else:
-     st.write("You didn't select comedy.")
+APIkey = '0a127aa062bc472c6fc8866ac02bf99c'
+location = 'london'
+
+url = 'http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + APIkey
+response = requests.get(url)
+weatherData = json.loads(response.text)
+weatherDescription = weatherData['weather'][0]['description']
+st.text(weatherData)
