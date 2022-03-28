@@ -14,3 +14,9 @@ temp = weatherData['main']['temp_max']
 st.text(weatherDescription)
 st.metric(label=' max temperature (°C)', value= temp)
 
+
+import streamlit as st
+import json, request
+
+st.header('Exercise with Datamuse')
+selection = st.selectbox('what do you want to know?', ('means like...', 'sounds like...', 'antonyms', 'synonims'))
