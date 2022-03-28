@@ -6,13 +6,13 @@ selection = st.selectbox('what do you want to know?', ('means like...', 'sounds 
 
 keyword = st.text_input('give me word')
 
-if selection = 'means like':
+if selection == 'means like':
     url= 'https://api.datamuse.com/words?ml=' + keyword 
-elif selection = 'sounds like':
+elif selection == 'sounds like':
     url= 'https://api.datamuse.com/words?sl=' + keyword 
-elif selection = 'antonyms':
+elif selection == 'antonyms':
     url= 'https://api.datamuse.com/words?rel_ant=' + keyword 
-else selection = 'synonims':
+else selection == 'synonims':
     url= 'https://api.datamuse.com/words?rel_syn=' + keyword 
 
     
