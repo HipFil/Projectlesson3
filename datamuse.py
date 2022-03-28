@@ -17,4 +17,4 @@ else:
 
 response = requests.get(url)
 dataFromDatamuse = json.loads(response.text)
-pprint(dataFromDatamuse[0:4])
+(dataFromDatamuse[0:4])
