@@ -12,7 +12,7 @@ elif selection == 'sounds like':
     url= 'https://api.datamuse.com/words?sl=' + keyword 
 elif selection == 'antonyms':
     url= 'https://api.datamuse.com/words?rel_ant=' + keyword 
-else selection == 'synonims':
+else:
     url= 'https://api.datamuse.com/words?rel_syn=' + keyword
 
 response = requests.get(url)
