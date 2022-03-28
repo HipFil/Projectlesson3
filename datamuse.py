@@ -4,7 +4,7 @@ import json, request
 st.header('Exercise with Datamuse')
 selection = st.selectbox('what do you want to know?', ('means like...', 'sounds like...', 'antonyms', 'synonims'))
 
-keyword = st.write(input('give me word': ))
+keyword = st.text_input('give me word')
 
 if selection = 'means like':
     url= 'https://api.datamuse.com/words?ml=' + keyword 
