@@ -17,7 +17,6 @@ else:
 
 response = requests.get(url)
 dataFromDatamuse = json.loads(response.text)
-ccc = dataFromDatamuse
+ccc = dataFromDatamuse['word']
 
 st.text(ccc)
-
