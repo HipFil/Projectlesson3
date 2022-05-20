@@ -30,7 +30,32 @@ for uploaded_file in uploaded_files:
     image = Image.open(uploaded_file)
     st.image(image)
     
-sorce_lan = st.text_input('give me a 2 letter word of your file langauge: ')
+sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["BG" - Bulgarian,
+"CS" - Czech,
+"DA" - Danish,
+"DE" - German,
+"EL" - Greek,
+"EN" - English,
+"ES" - Spanish,
+"ET" - Estonian,
+"FI" - Finnish,
+"FR" - French,
+"HU" - Hungarian,
+"ID" - Indonesian,
+"IT" - Italian,
+"JA" - Japanese,
+"LT" - Lithuanian,
+"LV" - Latvian,
+"NL" - Dutch,
+"PL" - Polish,
+"PT" - Portuguese,
+"RO" - Romanian,
+"RU" - Russian,
+"SK" - Slovak,
+"SL" - Slovenian,
+"SV" - Swedish,
+"TR" - Turkish,
+"ZH" - Chinese)
 
 local_file = uploaded_file
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
