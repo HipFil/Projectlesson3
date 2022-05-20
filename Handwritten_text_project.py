@@ -23,14 +23,14 @@ endpoint = credential['Endpoint']
 cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key))
 
 uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True)
-for file in uploaded_files:
+for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
     st.write("filename:", uploaded_file.name)
     st.write(bytes_data)
     
     sorce_lan = st.text_input('give me a 2 letter word of your file langauge: ')
 
-    local_file = file
+    local_file = uploaded_file
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
     response = cv_client.read_in_stream(open(local_file, 'rb'), Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
