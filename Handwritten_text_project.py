@@ -38,7 +38,7 @@ response = cv_client.read_in_stream(open(local_file, 'rb'), Language= source_lan
 operationLocation = response.headers['Operation-Location']
     #print(operationLocation)
 operation_id = operationLocation.split('/')[-1]
-    time.sleep(5)
+time.sleep(5)
     #print(operation_id) 
 result = cv_client.get_read_result(operation_id)
 
