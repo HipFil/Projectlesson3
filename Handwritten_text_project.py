@@ -55,7 +55,7 @@ sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["
 "SL" - Slovenian,
 "SV" - Swedish,
 "TR" - Turkish,
-"ZH" - Chinese)
+"ZH" - Chinese])
 
 local_file = uploaded_file
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
