@@ -28,16 +28,16 @@ for file in uploaded_files:
     st.write("filename:", uploaded_file.name)
     st.write(bytes_data)
     
-    lan = input('give me a 2 letter word of your file langauge: ')
+    sorce_lan = st.text_input('give me a 2 letter word of your file langauge: ')
 
     local_file = file
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
-    response = cv_client.read_in_stream(open(local_file, 'rb'), Language= lan, raw=True)
+    response = cv_client.read_in_stream(open(local_file, 'rb'), Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     #print(operationLocation)
     operation_id = operationLocation.split('/')[-1]
     time.sleep(5)
-    print(operation_id) 
+    #print(operation_id) 
     result = cv_client.get_read_result(operation_id)
 
     #print(result)
@@ -48,8 +48,6 @@ for file in uploaded_files:
         read_results = result.analyze_result.read_results
         for analyze_result in read_results:
             for line in analyze_result.lines:
-                print(line.text)
+                st.write(line.text)
             
-def HWTEXT():
-     for line in analyze_result.lines:
-            print(line.text)
+
