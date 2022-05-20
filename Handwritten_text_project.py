@@ -1,7 +1,5 @@
 import streamlit as st
 
-!pip install azure-cognitiveservices-vision-computervision
-!pip install requests
 
 import os
 import io
