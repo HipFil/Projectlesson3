@@ -22,7 +22,7 @@ endpoint = credential['Endpoint']
 
 cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key))
 
-uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False)
+uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True)
 for file in uploaded_files:
     bytes_data = uploaded_file.read()
     st.write("filename:", uploaded_file.name)
