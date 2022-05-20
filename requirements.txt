@@ -1,3 +1,4 @@
 googletrans==4.0.0-rc1
 gTTS
 click<=8.0.4
+azure-cognitiveservices-vision-computervision
