@@ -1,8 +1,8 @@
 APIkey_project = 'c17eeefb8d99415cb85571400b2b1c72'
 end_point = 'https://projectlabunibz.cognitiveservices.azure.com/'
 
-pip install azure-cognitiveservices-vision-computervision
-pip install requests
+!pip install azure-cognitiveservices-vision-computervision
+!pip install requests
 
 import os
 import io
