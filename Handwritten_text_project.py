@@ -25,9 +25,10 @@ cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key)
 uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True)
 for uploaded_file in uploaded_files:
     bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
+    file_name = st.write("filename:", uploaded_file.name)
     #st.write(bytes_data)
-    st.image(uploded_file)
+    image = Image.open(file_name)
+    st.image(image)
     
     sorce_lan = st.text_input('give me a 2 letter word of your file langauge: ')
 
