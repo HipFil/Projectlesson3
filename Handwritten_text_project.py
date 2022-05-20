@@ -1,5 +1,4 @@
-APIkey_project = 'c17eeefb8d99415cb85571400b2b1c72'
-end_point = 'https://projectlabunibz.cognitiveservices.azure.com/'
+import streamlit as st
 
 !pip install azure-cognitiveservices-vision-computervision
 !pip install requests
@@ -14,6 +13,9 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClientCo
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes,VisualFeatureTypes
 import requests
 from PIL import Image, ImageDraw, ImageFont
+
+APIkey_project = 'c17eeefb8d99415cb85571400b2b1c72'
+end_point = 'https://projectlabunibz.cognitiveservices.azure.com/'
 
 credential = {'API_key': 'c17eeefb8d99415cb85571400b2b1c72',
  'Endpoint': 'https://projectlabunibz.cognitiveservices.azure.com/'}
