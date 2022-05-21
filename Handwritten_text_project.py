@@ -22,7 +22,6 @@ endpoint = credential['Endpoint']
 
 cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key))
 
-uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True)
 sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["BG",
         "CS",
         "DA",
@@ -49,6 +48,8 @@ sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["
         "SV",
         "TR",
         "ZH"])
+uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True)
+
 
 if uploaded_files is not None:
     for uploaded_file in uploaded_files:
