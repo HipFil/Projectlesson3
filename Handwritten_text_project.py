@@ -16,7 +16,7 @@ APIkey_project = st.secrets['APIkey_project']
 end_point = st.secrets['end_point']
 
 credential = {'API_key': APIkey_project,
- 'Endpoint': }
+ 'Endpoint': end_point }
 API_key = credential['API_key']
 endpoint = credential['Endpoint']
 
