@@ -55,7 +55,7 @@ if uploaded_files == True:
         bytes_data = uploaded_file.read()
         file_name = st.write("filename:", uploaded_file.name)
     #st.write(bytes_data)
-        image = Image.open(uploaded_file)
+        image = Image.open(file_name)
         st.image(image)
       
         local_file = uploaded_file
