@@ -12,11 +12,11 @@ from azure.cognitiveservices.vision.computervision.models import OperationStatus
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
-APIkey_project = 'c17eeefb8d99415cb85571400b2b1c72'
-end_point = 'https://projectlabunibz.cognitiveservices.azure.com/'
+APIkey_project = st.secrets['APIkey_project']
+end_point = st.secrets['end_point']
 
-credential = {'API_key': 'c17eeefb8d99415cb85571400b2b1c72',
- 'Endpoint': 'https://projectlabunibz.cognitiveservices.azure.com/'}
+credential = {'API_key': APIkey_project,
+ 'Endpoint': }
 API_key = credential['API_key']
 endpoint = credential['Endpoint']
 
