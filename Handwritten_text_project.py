@@ -53,7 +53,9 @@ sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["
 image = Image.open(uploaded_files)
 st.image(image)
 
-if uploaded_files == True:
+if uploaded_files is not None:
+    string_data = stringio.read()
+    st.write(string_data)
     for uploaded_file in uploaded_files:
         bytes_data = uploaded_file.read()
         file_name = st.write("filename:", uploaded_file.name)
