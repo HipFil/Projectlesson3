@@ -57,10 +57,9 @@ if uploaded_files == True:
     #st.write(bytes_data)
         image = Image.open(file_name)
         st.image(image)
-      
-        local_file = uploaded_file
+     
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
-        response = cv_client.read_in_stream(open(local_file, 'rb'), Language= source_lan, raw=True)
+        response = cv_client.read_in_stream(open(uploaded_file, 'rb'), Language= source_lan, raw=True)
         operationLocation = response.headers['Operation-Location']
     #print(operationLocation)
         operation_id = operationLocation.split('/')[-1]
