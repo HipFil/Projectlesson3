@@ -24,7 +24,7 @@ cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key)
 
 uploaded_file = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=False)
 
-if uploded_file == True:
+if uploded_file:
     pass
 else:
     for uploaded_file in uploaded_files:
