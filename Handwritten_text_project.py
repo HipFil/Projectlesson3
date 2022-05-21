@@ -13,6 +13,8 @@ import requests
 from PIL import Image, ImageDraw, ImageFont
 from textblob import TextBlob
 import re
+import deepl
+
 
 APIkey_project = st.secrets['APIkey_project']
 end_point = st.secrets['end_point']
