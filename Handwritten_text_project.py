@@ -59,25 +59,25 @@ if uploaded_files == True:
         "TR",
         "ZH"])
 
-    local_file = uploaded_file
+        local_file = uploaded_file
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
-    response = cv_client.read_in_stream(open(local_file, 'rb'), Language= source_lan, raw=True)
-    operationLocation = response.headers['Operation-Location']
+        response = cv_client.read_in_stream(open(local_file, 'rb'), Language= source_lan, raw=True)
+        operationLocation = response.headers['Operation-Location']
     #print(operationLocation)
-    operation_id = operationLocation.split('/')[-1]
-    time.sleep(5)
+        operation_id = operationLocation.split('/')[-1]
+        time.sleep(5)
     #print(operation_id) 
-    result = cv_client.get_read_result(operation_id)
+        result = cv_client.get_read_result(operation_id)
 
     #print(result)
     #print(result.status)
     #print(result.analyze_result)
 
-    if result.status == OperationStatusCodes.succeeded:
-        read_results = result.analyze_result.read_results
-        for analyze_result in read_results:
-            for line in analyze_result.lines:
-                st.write(line.text)
+        if result.status == OperationStatusCodes.succeeded:
+            read_results = result.analyze_result.read_results
+            for analyze_result in read_results:
+                for line in analyze_result.lines:
+                    st.write(line.text)
     else:
         pass
             
