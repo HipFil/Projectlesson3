@@ -67,9 +67,9 @@ if uploaded_files is not None:
     #print(operation_id) 
         result = cv_client.get_read_result(operation_id)
 
-    #print(result)
-    #print(result.status)
-    #print(result.analyze_result)
+        st.write(result)
+        st.write(result.status)
+        st.write(result.analyze_result)
 
         if result.status == OperationStatusCodes.succeeded:
             read_results = result.analyze_result.read_results
