@@ -1,5 +1,8 @@
 import streamlit as st
 
+[theme]
+base="dark"
+primaryColor="purple"
 
 import os
 import io
