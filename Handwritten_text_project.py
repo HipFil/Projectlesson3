@@ -29,7 +29,7 @@ if uploaded_files == True:
         bytes_data = uploaded_file.read()
         file_name = st.write("filename:", uploaded_file.name)
     #st.write(bytes_data)
-        image = Image.open(uploaded_file)
+        image = Image.open(uploaded_files)
         st.image(image)
     
         sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["BG",
