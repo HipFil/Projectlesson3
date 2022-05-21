@@ -11,6 +11,8 @@ from azure.cognitiveservices.vision.computervision import ComputerVisionClientCo
 from azure.cognitiveservices.vision.computervision.models import OperationStatusCodes,VisualFeatureTypes
 import requests
 from PIL import Image, ImageDraw, ImageFont
+from textblob import TextBlob
+import re
 
 APIkey_project = st.secrets['APIkey_project']
 end_point = st.secrets['end_point']
@@ -88,4 +90,4 @@ if uploaded_files is not None:
     else:
         pass
             
-print(result1)
+st.write(result1)
