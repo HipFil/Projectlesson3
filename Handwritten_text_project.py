@@ -75,8 +75,17 @@ if uploaded_files is not None:
             read_results = result.analyze_result.read_results
             for analyze_result in read_results:
                 for line in analyze_result.lines:
-                    st.write(line.text)
+                    line_text = line.text
+                    #print(line_text)
+                    str_=re.findall("[a-zA-Z,.]+", line_text)
+                    updated_docx=(" ".join(str_))
+                    #print(updated_docx)
+                    new_doc = TextBlob(updated_docx)
+      
+                    result1 = result1 + " " + str(new_doc.correct())
+       
+       
     else:
         pass
             
-
+print(result1)
