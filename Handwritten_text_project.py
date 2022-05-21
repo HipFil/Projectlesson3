@@ -50,13 +50,15 @@ sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["
         "TR",
         "ZH"])
 
+image = Image.open(uploded_files)
+st.image(image)
+
 if uploaded_files == True:
     for uploaded_file in uploaded_files:
         bytes_data = uploaded_file.read()
         file_name = st.write("filename:", uploaded_file.name)
     #st.write(bytes_data)
-        image = Image.open(file_name)
-        st.image(image)
+        
      
     #response = cv_client.read(url = image_url, Language= lan, raw=True)
         response = cv_client.read_in_stream(open(uploaded_file, 'rb'), Language= source_lan, raw=True)
