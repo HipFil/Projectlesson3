@@ -59,16 +59,16 @@ if uploaded_files is not None:
     for uploaded_file in uploaded_files:
         bytes_data = uploaded_file.read()
         file_name = st.write("filename:", uploaded_file.name)
-    #st.write(bytes_data)
+   
         
-     
-    #response = cv_client.read(url = image_url, Language= lan, raw=True)
-        response = cv_client.read_in_stream(uploaded_file, Language= source_lan, raw=True)
-        operationLocation = response.headers['Operation-Location']
-    #print(operationLocation)
+        with open(uploaded_file, "rb") as image:
+    
+            response = cv_client.read_in_stream(uploaded_file, Language= source_lan, raw=True)
+        operationLocation = read_response.headers['Operation-Location']
+    
         operation_id = operationLocation.split('/')[-1]
         time.sleep(5)
-    #print(operation_id) 
+    
         result = cv_client.get_read_result(operation_id)
 
         st.write(result)
