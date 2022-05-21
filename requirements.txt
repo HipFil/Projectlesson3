@@ -5,4 +5,4 @@ azure-cognitiveservices-vision-computervision
 textblob
 requests
 deepl
-msrest.authentication
+
