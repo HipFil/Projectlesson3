@@ -90,4 +90,4 @@ if uploaded_files is not None:
     else:
         pass
             
-st.write(result1)
+
