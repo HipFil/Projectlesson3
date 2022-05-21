@@ -22,7 +22,7 @@ endpoint = credential['Endpoint']
 
 cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key))
 
-sorce_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["BG",
+source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', ["BG",
         "CS",
         "DA",
         "DE",
