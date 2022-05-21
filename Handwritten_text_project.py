@@ -60,29 +60,28 @@ if uploaded_files is not None:
         bytes_data = uploaded_file.read()
         file_name = st.write("filename:", uploaded_file.name)
    
-        
-        with open(image_file, "rb") as image:
-    # Call the API
-            read_response = computervision_client.read_in_stream(image, raw=True)
-# Get the operation location (URL with an ID at the end)
-        read_operation_location = read_response.headers["Operation-Location"]
-# Grab the ID from the URL
-        operation_id = read_operation_location.split("/")[-1]
-# Retrieve the results 
-        while True:
-             read_result = computervision_client.get_read_result(operation_id)
-             if read_result.status.lower() not in ['notstarted', 'running']:
-                 break
-        time.sleep(1)
-# Get the detected text
-        if read_result.status == OperationStatusCodes.succeeded:
-            for page in read_result.analyze_result.read_results:
-                for line in page.lines:
-            # Print line
-                    st.write(line.text)
-       
-       
-    else:
-        pass
-            
+        response = cv_client.read_in_stream(open(uploaded_files, "rb"), raw=True)
+        operationLocation = read_response.headers['Operation-Location']
+    
+        operation_id = operationLocation.split('/')[-1]
+        time.sleep(5)
+    
+        result = cv_client.get_read_result(operation_id)
+
+        st.write(result)
+        st.write(result.status)
+        st.write(result.analyze_result)
+
+        if result.status == OperationStatusCodes.succeeded:
+            read_results = result.analyze_result.read_results
+            for analyze_result in read_results:
+                for line in analyze_result.lines:
+                    line_text = line.text
+                    #print(line_text)
+                    str_=re.findall("[a-zA-Z,.]+", line_text)
+                    updated_docx=(" ".join(str_))
+                    #print(updated_docx)
+                    new_doc = TextBlob(updated_docx)
+      
+                    result1 = result1 + " " + str(new_doc.correct())
 
