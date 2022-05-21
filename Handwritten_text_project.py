@@ -63,7 +63,7 @@ if uploaded_files is not None:
         
         
     
-        response = cv_client.read_in_stream(open(uploaded_file, "rb"), Language= source_lan, raw=True)
+        response = cv_client.read_in_stream(open(uploaded_files, "rb"), Language= source_lan, raw=True)
         operationLocation = read_response.headers['Operation-Location']
     
         operation_id = operationLocation.split('/')[-1]
