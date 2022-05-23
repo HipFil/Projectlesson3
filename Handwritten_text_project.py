@@ -53,7 +53,7 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
         "TR",
         "ZH"])
 
-image_url = st.text_input('url')
+image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 response = cv_client.read(url = image_url, Language= source_lan, raw=True)
 operationLocation = response.headers['Operation-Location']
     
