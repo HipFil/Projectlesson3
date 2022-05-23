@@ -52,7 +52,7 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
         "SV",
         "TR",
         "ZH"])
-uploaded_files = st.file_uploader('Upload a text image', type='jpg', accept_multiple_files=True)
+uploaded_files = st.file_uploader('Upload a text image', type='jpg')
 
 
 if uploaded_files is not None:
