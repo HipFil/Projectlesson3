@@ -74,7 +74,7 @@ if result.status == OperationStatusCodes.succeeded:
             #st.write(line_text)
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
-            st.write(updated_docx)
+            #st.write(updated_docx)
             new_doc = TextBlob(updated_docx)
             
             result1 = result1 + " " + str(new_doc.correct())
