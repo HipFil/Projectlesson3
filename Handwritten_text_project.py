@@ -71,7 +71,7 @@ if result.status == OperationStatusCodes.succeeded:
     for analyze_result in read_results:
         for line in analyze_result.lines:
             line_text = line.text
-                    #print(line_text)
+            st.write(line_text)
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
                     #print(updated_docx)
