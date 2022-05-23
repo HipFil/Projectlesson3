@@ -56,7 +56,7 @@ uploaded_file = st.file_uploader('Upload a text image', type='jpg')
 
 
 if uploaded_file is not None:
-    bytes_data = StringIO(uploaded_file.getvalue.().decode("utf-8"))
+    bytes_data = StringIO(uploaded_file.getvalue().decode("utf-8"))
     file_name = st.write("filename:", uploaded_file.name)
    
     response = cv_client.read_in_stream(open(uploaded_file, "rb"), raw=True)
