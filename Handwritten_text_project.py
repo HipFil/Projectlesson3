@@ -75,12 +75,12 @@ if result.status == OperationStatusCodes.succeeded:
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
             st.write(updated_docx)
-            new_doc = TextBlob(updated_docx)
+            #new_doc = TextBlob(updated_docx)
       
-            result1 = result1 + " " + str(new_doc.correct())
+            #result1 = result1 + " " + str(new_doc.correct())
 
 
-st.write(result1)
+#st.write(result1)
 
 
 uploaded_file = st.file_uploader('Upload a text image', type='jpg')
