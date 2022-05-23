@@ -77,7 +77,7 @@ if result.status == OperationStatusCodes.succeeded:
             st.write(updated_docx)
             new_doc = TextBlob(updated_docx)
             
-            result1 = str(new_doc.correct())
+            result1 = result1 + " " + str(new_doc.correct())
 
 
 st.write(result1)
@@ -87,7 +87,7 @@ uploaded_file = st.file_uploader('Upload a text image', type='jpg')
 
 
 if uploaded_file is not None:
-    bytes_data = uploaded_file.getvalue()
+    bytes_data = uploaded_file.read()
     file_name = st.write("filename:", uploaded_file.name)
    
     response = cv_client.read_in_stream(open(uploaded_file, "rb"), raw=True)
