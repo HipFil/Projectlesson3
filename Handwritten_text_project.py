@@ -52,6 +52,37 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
         "SV",
         "TR",
         "ZH"])
+
+image_url = st.text_input()
+response = cv_client.read(url = image_url, Language= lan, raw=True)
+operationLocation = read_response.headers['Operation-Location']
+    
+operation_id = operationLocation.split('/')[-1]
+time.sleep(5)
+    
+result = cv_client.get_read_result(operation_id)
+
+    #st.write(result)
+    #st.write(result.status)
+    #st.write(result.analyze_result)
+
+if result.status == OperationStatusCodes.succeeded:
+    read_results = result.analyze_result.read_results
+    for analyze_result in read_results:
+        for line in analyze_result.lines:
+            line_text = line.text
+                    #print(line_text)
+            str_=re.findall("[a-zA-Z,.]+", line_text)
+            updated_docx=(" ".join(str_))
+                    #print(updated_docx)
+            new_doc = TextBlob(updated_docx)
+      
+            result1 = result1 + " " + str(new_doc.correct())
+
+
+st.write(result1)
+
+
 uploaded_file = st.file_uploader('Upload a text image', type='jpg')
 
 
