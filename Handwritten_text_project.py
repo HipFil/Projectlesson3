@@ -87,7 +87,7 @@ uploaded_file = st.file_uploader('Upload a text image', type='jpg')
 
 
 if uploaded_file is not None:
-    #bytes_data = uploaded_file.getvalue()
+    bytes_data = uploaded_file.getvalue()
     file_name = st.write("filename:", uploaded_file.name)
    
     response = cv_client.read_in_stream(open(uploaded_file, "rb"), raw=True)
