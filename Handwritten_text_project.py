@@ -77,7 +77,7 @@ if result.status == OperationStatusCodes.succeeded:
             #st.write(updated_docx)
             new_doc = TextBlob(updated_docx)
       
-            result1 = str(new_doc.correct())
+            result1 = result1 + str(new_doc.correct())
 
 
 st.write(result1)
