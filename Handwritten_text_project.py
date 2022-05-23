@@ -54,7 +54,7 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
         "ZH"])
 
 image_url = st.text_input('url')
-response = cv_client.read(url = image_url, Language= lan, raw=True)
+response = cv_client.read(url = image_url, Language= source_lan, raw=True)
 operationLocation = read_response.headers['Operation-Location']
     
 operation_id = operationLocation.split('/')[-1]
