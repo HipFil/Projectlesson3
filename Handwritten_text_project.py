@@ -91,7 +91,7 @@ if uploaded_file is not None:
     file_name = st.write("filename:", uploaded_file.name)
    
     response = cv_client.read_in_stream(open(uploaded_file, "rb"), raw=True)
-    operationLocation = read_response.headers['Operation-Location']
+    operationLocation = response.headers['Operation-Location']
     
     operation_id = operationLocation.split('/')[-1]
     time.sleep(5)
