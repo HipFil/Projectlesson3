@@ -14,6 +14,7 @@ from PIL import Image, ImageDraw, ImageFont
 from textblob import TextBlob
 import re
 import deepl
+from deepl import Translator
 
 
 APIkey_project = st.secrets['APIkey_project']
