@@ -118,7 +118,14 @@ if choice == "yes":
         "SV",
         "TR",
         "ZH"])
-
+    
+    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
+    operationLocation = response.headers['Operation-Location']
+    
+    operation_id = operationLocation.split('/')[-1]
+    time.sleep(5)
+    
+    result = cv_client.get_read_result(operation_id)
 
     if result.status == OperationStatusCodes.succeeded:
         read_results = result.analyze_result.read_results
@@ -134,9 +141,12 @@ if choice == "yes":
                 result = translator.translate_text(updated_docx, target_lang = tg ) 
                 translated_text = result.text
                 st.write(translated_text)
+    else:
+        pass
           
           
-          
+ else:
+     pass
           
           
           
