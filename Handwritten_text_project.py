@@ -83,13 +83,12 @@ if result.status == OperationStatusCodes.succeeded:
 st.write(result1)
 
 
-uploaded_file = st.file_uploader('Upload a text image', type='jpg')
+uploaded_file = st.file_uploader('Upload a text image')
 
 
 if uploaded_file is not None:
-    bytes_data = uploaded_file.read()
-    file_name = st.write("filename:", uploaded_file.name)
-   
+    #bytes_data = uploaded_file.read()
+    
     response = cv_client.read_in_stream(open(uploaded_file, "rb"), raw=True)
     operationLocation = response.headers['Operation-Location']
     
