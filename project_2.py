@@ -77,12 +77,13 @@ if result.status == OperationStatusCodes.succeeded:
             #st.write(line_text)
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
+            
             with col1:
-                st.header('the original text is:')
+                st.header('the original line is:')
                 st.write(updated_docx)
     
             new_doc = TextBlob(updated_docx)
             result = str(new_doc.correct())
             with col2:
-                st.header('the corrected text is:')
+                st.header('the corrected line is:')
                 st.write(result)
