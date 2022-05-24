@@ -92,7 +92,7 @@ if image_url is not None:
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
 
 if choice == "yes":
-    tg= source_lan = st.multiselect('Give the target language: ', ["BG",
+    tg= st.multiselect('Give the target language: ', ["BG",
         "CS",
         "DA",
         "DE",
