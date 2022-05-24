@@ -53,6 +53,7 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
         "TR",
         "ZH"])
 
+
 image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 response = cv_client.read(url = image_url, Language= source_lan, raw=True)
 operationLocation = response.headers['Operation-Location']
@@ -66,6 +67,8 @@ result = cv_client.get_read_result(operation_id)
 #st.write(result.status)
 #st.write(result.analyze_result)
 
+col1, col2 = st.columns(2)
+
 if result.status == OperationStatusCodes.succeeded:
     read_results = result.analyze_result.read_results
     for analyze_result in read_results:
@@ -74,7 +77,10 @@ if result.status == OperationStatusCodes.succeeded:
             #st.write(line_text)
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
-            st.write('the original string is:', updated_docx)
+            with col1:
+                st.write('the original string is:', updated_docx)
+    
             new_doc = TextBlob(updated_docx)
             result = str(new_doc.correct())
-            st.write('the corrected string is:', result)
+            with col2:
+                st.write('the corrected string is:', result)
