@@ -78,9 +78,11 @@ if result.status == OperationStatusCodes.succeeded:
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
             with col1:
-                st.write('the original string is:', updated_docx)
+                st.header('the original text is:')
+                st.write(updated_docx)
     
             new_doc = TextBlob(updated_docx)
             result = str(new_doc.correct())
             with col2:
-                st.write('the corrected string is:', result)
+                st.header('the corrected text is:')
+                st.write(result)
