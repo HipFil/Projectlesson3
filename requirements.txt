@@ -6,3 +6,4 @@ textblob
 requests
 deepl
 msrest
+gingerit
