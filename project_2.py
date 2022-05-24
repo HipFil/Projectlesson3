@@ -87,3 +87,56 @@ if image_url is not None:
                 with col2:
                     st.subheader('the corrected line is:')
                     st.write(result)
+          
+          
+choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
+
+if choice == "yes":
+    tg= source_lan = st.multiselect('Give the target language: ', ["BG",
+        "CS",
+        "DA",
+        "DE",
+        "EL"                                                                              ,
+        "EN",
+        "ES",
+        "ET",
+        "FI",
+        "FR",
+        "HU",
+        "ID",
+        "IT",
+        "JA",
+        "LT",
+        "LV",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "RU",
+        "SK",
+        "SL",
+        "SV",
+        "TR",
+        "ZH"])
+
+
+    if result.status == OperationStatusCodes.succeeded:
+        read_results = result.analyze_result.read_results
+        for analyze_result in read_results:
+            for line in analyze_result.lines:
+                line_text = line.text
+                #print(line_text)
+                str_=re.findall("[a-zA-Z,.]+", line_text)
+                updated_docx=(" ".join(str_))
+                #print(updated_docx)
+                
+                translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
+                result = translator.translate_text(updated_docx, target_lang = tg ) 
+                translated_text = result.text
+                st.write(translated_text)
+          
+          
+          
+          
+          
+          
