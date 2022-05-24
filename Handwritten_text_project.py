@@ -78,11 +78,11 @@ if uploaded_file is not None:
         for analyze_result in read_results:
             for line in analyze_result.lines:
                 line_text = line.text
-                st.write(line_text)
+                st.write('the original text is:', line_text)
                 str_=re.findall("[a-zA-Z,.]+", line_text)
                 updated_docx=(" ".join(str_))
-                    #print(updated_docx)
+                #print(updated_docx)
                 new_doc = TextBlob(updated_docx)
-      
-                result1 = result1 + " " + str(new_doc.correct())
+                result = new_doc.correct()
+                st.write('the corrected text is:', result)
 
