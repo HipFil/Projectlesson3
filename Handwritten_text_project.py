@@ -55,14 +55,14 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
 
 
 uploaded_file = st.file_uploader('Upload a text image', type= None)
-image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
+#image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 
-if image_url is not None:
+if uploaded_image is not None:
     #bytes_data = uploaded_file.getvalue()
-    image = Image.open(image_url)
+    image = Image.open(uploaded_image)
     st.image(image)
-    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
-    #response = cv_client.read(image, Language = source_lan, raw=True)
+    #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
+    response = cv_client.read(image, Language = source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     
     operation_id = operationLocation.split('/')[-1]
@@ -74,7 +74,7 @@ if image_url is not None:
     st.write(result.status)
     st.write(result.analyze_result)
     
-    result = ""
+    result1 = ""
     
     if result.status == OperationStatusCodes.succeeded:
         read_results = result.analyze_result.read_results
@@ -86,6 +86,6 @@ if image_url is not None:
                 updated_docx=(" ".join(str_))
                 #print(updated_docx)
                 new_doc = TextBlob(updated_docx)
-                result = result + new_doc.correct()
+                result1 = result1 + new_doc.correct()
                 st.write('the corrected text is:', result)
 
