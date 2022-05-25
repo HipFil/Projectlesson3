@@ -128,5 +128,5 @@ if choice == "yes":
     translated_text = result.text
     st.write(translated_text)
     
- else:
-     st.write('Alright, thanks for using me!)
+else:
+    st.write('Alright, thanks for using me!)
