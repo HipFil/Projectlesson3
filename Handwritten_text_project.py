@@ -98,6 +98,8 @@ if uploaded_file is not None:
 st.write('the original text is:', result1)                
 st.write('the corrected text is:', result2)
 
+st.download_button('Download corrected text', result2)
+
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
 
 if choice == "yes":
