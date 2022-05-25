@@ -62,7 +62,7 @@ if uploaded_file is not None:
     #image = Image.open(uploaded_file)
     #st.image(image)
     #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
-    response = cv_client.read(open(uploaded_file, "rb"), Language = source_lan, raw=True)
+    response = cv_client.read(Image.open(uploaded_file, "rb"), Language = source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     
     operation_id = operationLocation.split('/')[-1]
@@ -74,10 +74,12 @@ if uploaded_file is not None:
     st.write(result.status)
     st.write(result.analyze_result)
     
+    result1 = ""
+    result2 = ""
     
     if result.status == OperationStatusCodes.succeeded:
         read_results = result.analyze_result.read_results
-        result1 = ""
+       
         for analyze_result in read_results:
             for line in analyze_result.lines:
                 line_text = line.text
