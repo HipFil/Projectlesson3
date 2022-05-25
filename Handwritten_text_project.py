@@ -57,7 +57,7 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
 uploaded_file = st.file_uploader('Upload a text image', type= None)
 #image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 
-if uploaded_image is not None:
+if uploaded_file is not None:
     #bytes_data = uploaded_file.getvalue()
     image = Image.open(uploaded_file)
     st.image(image)
