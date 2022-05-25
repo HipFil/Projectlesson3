@@ -66,7 +66,11 @@ if image_url is not None:
     operation_id = operationLocation.split('/')[-1]
     time.sleep(5)
     
+    
     result = cv_client.get_read_result(operation_id)
+    st.write(result)
+    st.write(result.status)
+    st.write(result.analyze_result)
     result = ""
     result1 = ""
     col1, col2 = st.columns(2)
