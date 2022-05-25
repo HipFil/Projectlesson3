@@ -128,6 +128,7 @@ if choice == "yes":
     time.sleep(5)
     
     result = cv_client.get_read_result(operation_id)
+    result1 = ""
 
     if result.status == OperationStatusCodes.succeeded:
         read_results = result.analyze_result.read_results
@@ -138,6 +139,9 @@ if choice == "yes":
                 str_=re.findall("[a-zA-Z,.]+", line_text)
                 updated_docx=(" ".join(str_))
                 #print(updated_docx)
+                new_doc = TextBlob(updated_docx)
+                result = new_doc.correct()
+                result1 = result1 + str(new_doc.correct())
                 
                 translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
                 result = translator.translate_text(updated_docx, target_lang = tg ) 
