@@ -80,7 +80,7 @@ if image_url is not None:
                 
                 str_=re.findall("[a-zA-Z,.]+", line_text)
                 updated_docx=(" ".join(str_))
-                result = result + updated_docx
+                #result = result + updated_docx
                 new_doc = TextBlob(updated_docx)
                 result1 = result1 + str(new_doc.correct())
 
