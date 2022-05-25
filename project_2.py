@@ -59,8 +59,8 @@ image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/upload
 
 if image_url is not None:
     image = Image.open(image_url)
-    st.image(image)
-    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
+    #st.image(image)
+    #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     
     operation_id = operationLocation.split('/')[-1]
