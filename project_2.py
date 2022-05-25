@@ -58,9 +58,9 @@ source_lan = st.multiselect('give me a 2 letter word of your file langauge: ', [
 image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 
 if image_url is not None:
-    image = Image.open(image_url)
+    #image = Image.open(image_url)
     #st.image(image)
-    #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
+    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     
     operation_id = operationLocation.split('/')[-1]
