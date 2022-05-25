@@ -76,15 +76,15 @@ if image_url is not None:
         for analyze_result in read_results:
             for line in analyze_result.lines:
                 line_text = line.text
-                #st.write(line_text)
+                st.write(line_text)
                 
-                str_=re.findall("[a-zA-Z,.]+", line_text)
-                updated_docx=(" ".join(str_))
+                #str_=re.findall("[a-zA-Z,.]+", line_text)
+                #updated_docx=(" ".join(str_))
                 #result = result + updated_docx
-                new_doc = TextBlob(updated_docx)
-                result1 = result1 + str(new_doc.correct())
+                #new_doc = TextBlob(updated_docx)
+                #result1 = result1 + str(new_doc.correct())
 
-st.write(result1)
+#st.write(result1)
                
     #with col1:
         #st.subheader('the original text is:')
