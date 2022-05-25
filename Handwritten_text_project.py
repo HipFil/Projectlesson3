@@ -26,7 +26,7 @@ endpoint = credential['Endpoint']
 
 cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key))
 
-#st.title('HW-Reader')
+st.title('HW-Reader')
          
 #st.write('''Hello user! I am HW-Reader, a simple app to read, correct and translate your handwritten texts and notes.''')
 #st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text if needed 4. select the language and translate the text.'''  
