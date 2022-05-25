@@ -71,7 +71,7 @@ if uploaded_file is not None:
     st.image(image)
     #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
     response = cv_client.read_in_stream(open('handwriting1.jpg', "rb"), Language= source_lan, raw=True)
-    
+    operationLocation = response.headers['Operation-Location']
     operation_id = operationLocation.split('/')[-1]
     time.sleep(1)
     
