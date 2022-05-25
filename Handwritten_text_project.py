@@ -76,10 +76,6 @@ if uploaded_file is not None:
     time.sleep(1)
     
     result = cv_client.get_read_result(operation_id)
-
-    st.write(result)
-    st.write(result.status)
-    st.write(result.analyze_result)
     
     if result.status == OperationStatusCodes.succeeded:
         read_results = result.analyze_result.read_results
