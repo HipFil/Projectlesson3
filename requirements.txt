@@ -4,6 +4,6 @@ click<=8.0.4
 azure-cognitiveservices-vision-computervision
 textblob
 requests
---upgrade deepl
+deepl
 msrest
 gingerit
