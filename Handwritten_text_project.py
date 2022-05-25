@@ -26,6 +26,8 @@ endpoint = credential['Endpoint']
 
 cv_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(API_key))
 
+image = Image.open('HW-REader.jpg')
+st.image(image)
 st.title('HW-Reader')
          
 st.write('''Hello user! I am HW-Reader, a simple app to read, correct and translate your handwritten texts and notes.''')
