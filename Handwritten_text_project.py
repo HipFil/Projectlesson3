@@ -92,3 +92,41 @@ if uploaded_file is not None:
 st.write('the original text is:', result1)                
 st.write('the corrected text is:', result2)
 
+choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
+
+if choice == "yes":
+    tg= st.multiselect('Give the target language: ', ["BG",
+        "CS",
+        "DA",
+        "DE",
+        "EL"                                                                              ,
+        "EN",
+        "ES",
+        "ET",
+        "FI",
+        "FR",
+        "HU",
+        "ID",
+        "IT",
+        "JA",
+        "LT",
+        "LV",
+        "NL",
+        "PL",
+        "PT",
+        "RO",
+        "RU",
+        "SK",
+        "SL",
+        "SV",
+        "TR",
+        "ZH"])
+   
+                
+    translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
+    result = translator.translate_text(result2, target_lang = tg ) 
+    translated_text = result.text
+    st.write(translated_text)
+    
+ else:
+     st.write('Alright, thanks for using me!)
