@@ -68,9 +68,9 @@ if image_url is not None:
     
     
     result = cv_client.get_read_result(operation_id)
-    st.write(result)
+    #st.write(result)
     st.write(result.status)
-    st.write(result.analyze_result)
+    #st.write(result.analyze_result)
     result = ""
     result1 = ""
     col1, col2 = st.columns(2)
@@ -87,16 +87,14 @@ if image_url is not None:
                 #result = result + updated_docx
                 #new_doc = TextBlob(updated_docx)
                 #result1 = result1 + str(new_doc.correct())
-
-#st.write(result1)
                
-    #with col1:
-        #st.subheader('the original text is:')
-        #st.write(result)
+    with col1:
+        st.subheader('the original text is:')
+        st.write(result)
                     
-    #with col2:
-        #st.subheader('the corrected text is:')
-        #st.write(result1)
+    with col2:
+        st.subheader('the corrected text is:')
+        st.write(result1)
           
           
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
@@ -128,36 +126,12 @@ if choice == "yes":
         "SV",
         "TR",
         "ZH"])
-    
-    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
-    operationLocation = response.headers['Operation-Location']
-    
-    operation_id = operationLocation.split('/')[-1]
-    time.sleep(5)
-    
-    result = cv_client.get_read_result(operation_id)
-    result1 = ""
-
-    if result.status == OperationStatusCodes.succeeded:
-        read_results = result.analyze_result.read_results
-        for analyze_result in read_results:
-            for line in analyze_result.lines:
-                line_text = line.text
-                #print(line_text)
-                str_=re.findall("[a-zA-Z,.]+", line_text)
-                updated_docx=(" ".join(str_))
-                #print(updated_docx)
-                new_doc = TextBlob(updated_docx)
-                result = new_doc.correct()
-                result1 = result1 + str(new_doc.correct())
+   
                 
-                translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
-                result = translator.translate_text(updated_docx, target_lang = tg ) 
-                translated_text = result.text
-                st.write(translated_text)
-    else:
-        pass
-          
+    translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
+    result = translator.translate_text(result1, target_lang = tg ) 
+    translated_text = result.text
+    st.write(translated_text)
           
 else:
     pass
