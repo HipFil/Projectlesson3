@@ -68,7 +68,7 @@ if image_url is not None:
     
     result = cv_client.get_read_result(operation_id)
 
-
+    result1 = ""
     col1, col2 = st.columns(2)
 
     if result.status == OperationStatusCodes.succeeded:
@@ -83,12 +83,16 @@ if image_url is not None:
                 with col1:
                     st.subheader('the original line is:')
                     st.write(updated_docx)
+                    
     
                 new_doc = TextBlob(updated_docx)
                 result = str(new_doc.correct())
                 with col2:
                     st.subheader('the corrected line is:')
-                    st.write(result)
+                    new_doc = TextBlob(updated_docx)
+                    result1 = result1 + str(new_doc.correct())
+                    
+                    st.write(result1)
           
           
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
