@@ -59,10 +59,10 @@ uploaded_file = st.file_uploader('Upload a text image', type= None)
 
 if uploaded_image is not None:
     #bytes_data = uploaded_file.getvalue()
-    image = Image.open(uploaded_image)
+    image = Image.open(uploaded_file)
     st.image(image)
     #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
-    response = cv_client.read(image, Language = source_lan, raw=True)
+    response = cv_client.read((image, "rb"), Language = source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     
     operation_id = operationLocation.split('/')[-1]
