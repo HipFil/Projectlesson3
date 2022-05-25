@@ -67,7 +67,7 @@ if image_url is not None:
     time.sleep(5)
     
     result = cv_client.get_read_result(operation_id)
-
+    result = ""
     result1 = ""
     col1, col2 = st.columns(2)
 
@@ -77,22 +77,20 @@ if image_url is not None:
             for line in analyze_result.lines:
                 line_text = line.text
                 #st.write(line_text)
+                
                 str_=re.findall("[a-zA-Z,.]+", line_text)
                 updated_docx=(" ".join(str_))
-            
-                with col1:
-                    st.subheader('the original line is:')
-                    st.write(updated_docx)
-                    
-    
+                result = result + updated_docx
                 new_doc = TextBlob(updated_docx)
-                result = str(new_doc.correct())
-                with col2:
-                    st.subheader('the corrected line is:')
-                    new_doc = TextBlob(updated_docx)
-                    result1 = result1 + str(new_doc.correct())
+                result1 = result1 + str(new_doc.correct())
+                
+    with col1:
+        st.subheader('the original line is:')
+        st.write(result)
                     
-                    st.write(result1)
+    with col2:
+        st.subheader('the corrected line is:')
+        st.write(result1)
           
           
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
