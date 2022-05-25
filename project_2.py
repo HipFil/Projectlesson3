@@ -83,14 +83,16 @@ if image_url is not None:
                 result = result + updated_docx
                 new_doc = TextBlob(updated_docx)
                 result1 = result1 + str(new_doc.correct())
-                
-    with col1:
-        st.subheader('the original line is:')
-        st.write(result)
+
+st.write(result1)
+               
+    #with col1:
+        #st.subheader('the original text is:')
+        #st.write(result)
                     
-    with col2:
-        st.subheader('the corrected line is:')
-        st.write(result1)
+    #with col2:
+        #st.subheader('the corrected text is:')
+        #st.write(result1)
           
           
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
