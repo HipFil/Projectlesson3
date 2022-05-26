@@ -68,7 +68,7 @@ source_lan = st.multiselect('give me a 2 letter word of your file language: ', [
 
 uploaded_file = st.file_uploader('Upload a text image', type= ['jpg', 'jpeg'])
 if uploaded_file is not None:
-    path_in = upload_file.name
+    path_in = uploaded_file.name
     st.write(path_in)
 else:
     path_in = None
