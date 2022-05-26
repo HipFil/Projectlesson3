@@ -96,8 +96,12 @@ if uploaded_file is not None:
                 new_doc = TextBlob(updated_docx)
                 result2 = result2 + str(new_doc.correct())
 
-st.write('the original text is:', result1)                
-st.write('the corrected text is:', result2)
+col1, col2 = st.columns(2)
+
+with col1:
+    st.write('the original text is:', result1)                
+with col2:
+    st.write('the corrected text is:', result2)
 
 st.download_button('Download corrected text', result2)
 
@@ -133,15 +137,15 @@ if choice == "yes":
    
                 
     translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
-    result = translator.translate_text(result2, target_lang = tg ) 
-    translated_text = result.text
+    result3= translator.translate_text(result2, target_lang = tg ) 
+    translated_text = result3.text
     st.write(translated_text)
     
 else:
     st.write('Alright, thanks for using me! See you soon!')
 
  
-st.header('Credits:')
+st.subheader('Credits:')
  
 st.write('For the image: https://media.istockphoto.com/vectors/text-reading-bot-glyph-icon-screen-reader-application-virtual-robot-vector-id1206206967?b=1&k=20&m=1206206967&s=170667a&w=0&h=A5yLjH3V5lwFiSP2uIes5tr4WIiLy6sE1xJBlGqKVWE= ')
  
