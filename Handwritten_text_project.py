@@ -135,11 +135,13 @@ if choice == "yes":
         "TR",
         "ZH"])
    
-                
-    translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
-    result3= translator.translate_text(result2, target_lang = tg ) 
-    translated_text = result3.text
-    st.write(translated_text)
+    if tg is not None:              
+        translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
+        result3= translator.translate_text(result2, target_lang = tg ) 
+        translated_text = result3.text
+        st.write(translated_text)
+    else:
+        pass
     
 else:
     st.write('Alright, thanks for using me! See you soon!')
