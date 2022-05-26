@@ -67,17 +67,21 @@ source_lan = st.multiselect('give me a 2 letter word of your file language: ', [
         "ZH"])
 
 uploaded_file = st.file_uploader('Upload a text image', type= ['jpg', 'jpeg'])
+if uploaded_file is not None:
+    path_in = upload_file.name
+    st.write(path_in)
+else:
+    path_in = None
 #image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 result1 = ""
 result2 = ""
 
 if uploaded_file is not None:
-    data = uploaded_file.read()
-    #bytes_data = uploaded_file.getvalue()
+   
     image = Image.open(uploaded_file)
     st.image(image)
     #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
-    response = cv_client.read_in_stream(open(data), Language= source_lan, raw=True)
+    response = cv_client.read_in_stream(open(path_in, "rb"), Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     operation_id = operationLocation.split('/')[-1]
     time.sleep(1)
