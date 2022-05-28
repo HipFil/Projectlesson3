@@ -66,22 +66,25 @@ source_lan = st.multiselect('give me a 2 letter word of your file language: ', [
         "TR",
         "ZH"])
 
-uploaded_file = st.file_uploader('Upload a text image', type= ['jpg', 'jpeg'])
-if uploaded_file is not None:
-    path_in = uploaded_file.name
-    st.write(path_in)
-else:
-    path_in = None
+#uploaded_file = st.file_uploader('Upload a text image', type= ['jpg', 'jpeg'])
+#if uploaded_file is not None:
+    #path_in = uploaded_file.name
+    #st.write(path_in)
+#else:
+    #path_in = None
 #image_url = st.text_input('url: https://www.opensourceforu.com/wp-content/uploads/2016/09/Figure-1-Sample-Page-1.jpg')
 result1 = ""
 result2 = ""
 
-if uploaded_file is not None:
-    bytes_data = uploaded_file.getvalue()
-    image = Image.open(uploaded_file)
-    st.image(image)
-    #response = cv_client.read(url = image_url, Language= source_lan, raw=True)
-    response = cv_client.read_in_stream(open(bytes_data), Language= source_lan, raw=True)
+st.subheader("upload your image")
+st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" --> "upload file". Once the image is displayed commit the file''')
+local_file = st.text_input('''write "name_of_your_file.jpg''')
+if local_file is not None:
+    #bytes_data = uploaded_file.getvalue()
+    image = Image.open(local_file)
+    st.image(local_file)
+    
+    response = cv_client.read_in_stream(open(local_file), Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     operation_id = operationLocation.split('/')[-1]
     time.sleep(1)
