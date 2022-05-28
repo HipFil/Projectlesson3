@@ -77,32 +77,32 @@ result1 = ""
 result2 = ""
 
 st.subheader("upload your image")
-st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" --> "upload file". Once the image is displayed commit the file''')
-local_file = st.text_input('''write "name_of_your_file.jpg''')
-if local_file is not None:
+st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" > "upload file". Once the image is displayed commit the file''')
+local_file = st.text_input('write "name_of_your_file.jpg"')
+#if local_file is not None:
     #bytes_data = uploaded_file.getvalue()
-    image = Image.open(local_file)
-    st.image(local_file)
+image = Image.open(local_file)
+st.image(local_file)
     
-    response = cv_client.read_in_stream(open(local_file), Language= source_lan, raw=True)
-    operationLocation = response.headers['Operation-Location']
-    operation_id = operationLocation.split('/')[-1]
-    time.sleep(1)
+response = cv_client.read_in_stream(open(local_file), Language= source_lan, raw=True)
+operationLocation = response.headers['Operation-Location']
+operation_id = operationLocation.split('/')[-1]
+time.sleep(1)
     
-    result = cv_client.get_read_result(operation_id)
+result = cv_client.get_read_result(operation_id)
     
-    if result.status == OperationStatusCodes.succeeded:
-        read_results = result.analyze_result.read_results
+if result.status == OperationStatusCodes.succeeded:
+    read_results = result.analyze_result.read_results
        
-        for analyze_result in read_results:
-            for line in analyze_result.lines:
-                line_text = line.text
+    for analyze_result in read_results:
+        for line in analyze_result.lines:
+            line_text = line.text
                 
-                str_=re.findall("[a-zA-Z,.]+", line_text)
-                updated_docx=(" ".join(str_))
-                result1 = result1 + " " + updated_docx
-                new_doc = TextBlob(updated_docx)
-                result2 = result2 + str(new_doc.correct())
+            str_=re.findall("[a-zA-Z,.]+", line_text)
+            updated_docx=(" ".join(str_))
+             result1 = result1 + " " + updated_docx
+             new_doc = TextBlob(updated_docx)
+             result2 = result2 + str(new_doc.correct())
 
 col1, col2 = st.columns(2)
 
