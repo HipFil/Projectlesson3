@@ -114,7 +114,7 @@ with col2:
 st.download_button('Download corrected text', result2)
 
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
-
+deepl_api = st.secrets['deeplAPI']
 if choice == "yes":
     tg= st.multiselect('Give the target language: ', ["BG",
         "CS",
@@ -144,7 +144,7 @@ if choice == "yes":
         "ZH"])
    
     if tg is not None:              
-        translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
+        translator = deepl.Translator(deepl_api) 
         result3= translator.translate_text(result2, target_lang = tg ) 
         translated_text = result3.text
         st.write(translated_text)
