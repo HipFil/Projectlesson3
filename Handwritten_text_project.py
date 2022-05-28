@@ -84,7 +84,7 @@ local_file = st.text_input('write "name_of_your_file.jpg"')
 image = Image.open(local_file)
 st.image(local_file)
     
-response = cv_client.read_in_stream(open(local_file), Language= source_lan, raw=True)
+response = cv_client.read_in_stream(open('handwriting1.jpg'), Language= source_lan, raw=True)
 operationLocation = response.headers['Operation-Location']
 operation_id = operationLocation.split('/')[-1]
 time.sleep(1)
