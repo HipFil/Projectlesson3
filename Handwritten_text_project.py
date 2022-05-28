@@ -100,9 +100,9 @@ if result.status == OperationStatusCodes.succeeded:
                 
             str_=re.findall("[a-zA-Z,.]+", line_text)
             updated_docx=(" ".join(str_))
-             result1 = result1 + " " + updated_docx
-             new_doc = TextBlob(updated_docx)
-             result2 = result2 + str(new_doc.correct())
+            result1 = result1 + " " + updated_docx
+            new_doc = TextBlob(updated_docx)
+            result2 = result2 + str(new_doc.correct())
 
 col1, col2 = st.columns(2)
 
