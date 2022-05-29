@@ -105,6 +105,8 @@ if local_file != '':
                 new_doc = TextBlob(updated_docx)
                 result2 = result2 + str(new_doc.correct())
 
+else:
+    pass
 
 col1, col2 = st.columns(2)
 
@@ -117,7 +119,7 @@ with col2:
     audio_file = open('file_name.mp3', "rb")
     st.audio(data=audio_file, format="audio/mp3", start_time=0
 
-st.download_button('Download corrected text', result2)
+    st.download_button('Download corrected text', result2)
 
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
 deepl_api = st.secrets['deeplAPI']
