@@ -105,26 +105,25 @@ if local_file != '':
                 new_doc = TextBlob(updated_docx)
                 result2 = result2 + str(new_doc.correct())
 
-else:
-    pass
 
-col1, col2 = st.columns(2)
 
-with col1:
-    st.write('the original text is:', result1)                
-with col2:
-    st.write('the corrected text is:', result2)
-    tts1=gTTS(text= result2, lang= source_lan)
-    tts1.save('file_name.mp3')
-    audio_file = open('file_name.mp3', "rb")
-    st.audio(data=audio_file, format="audio/mp3", start_time=0
+    col1, col2 = st.columns(2)
 
-#st.download_button('Download corrected text', result2)
+    with col1:
+        st.write('the original text is:', result1)                
+    with col2:
+        st.write('the corrected text is:', result2)
+        tts1=gTTS(text= result2, lang= source_lan)
+        tts1.save('file_name.mp3')
+        audio_file = open('file_name.mp3', "rb")
+        st.audio(data=audio_file, format="audio/mp3", start_time=0
 
-choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
-deepl_api = st.secrets['deeplAPI']
-if choice == "yes":
-    tg= st.multiselect('Give the target language: ', ["BG",
+    st.download_button('Download corrected text', result2)
+
+    choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
+    deepl_api = st.secrets['deeplAPI']
+    if choice == "yes":
+        tg= st.multiselect('Give the target language: ', ["BG",
         "CS",
         "DA",
         "DE",
@@ -151,18 +150,20 @@ if choice == "yes":
         "TR",
         "ZH"])
    
-    if tg is not None:              
-        translator = deepl.Translator(deepl_api) 
-        result3= translator.translate_text(result2, target_lang = tg ) 
-        translated_text = result3.text
-        st.write(translated_text)
-    else:
-        pass
+        if tg is not None:              
+            translator = deepl.Translator(deepl_api) 
+            result3= translator.translate_text(result2, target_lang = tg ) 
+            translated_text = result3.text
+            st.write(translated_text)
+        else:
+            pass
     
-else:
-    st.write('Alright, thanks for using me! See you soon!')
+    else:
+        st.write('Alright, thanks for using me! See you soon!')
 
- 
+else:
+    pass
+                 
 st.subheader('Credits:')
  
 st.write('For the image: https://media.istockphoto.com/vectors/text-reading-bot-glyph-icon-screen-reader-application-virtual-robot-vector-id1206206967?b=1&k=20&m=1206206967&s=170667a&w=0&h=A5yLjH3V5lwFiSP2uIes5tr4WIiLy6sE1xJBlGqKVWE= ')
