@@ -80,7 +80,7 @@ result2 = ""
 st.subheader("upload your image")
 st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" > "upload file". Once the image is displayed commit the file''')
 local_file = st.text_input('write "name_of_your_file.jpg"')
-if local_file != '':
+if local_file != ' ':
     
     image = Image.open(local_file)
     st.image(local_file)
