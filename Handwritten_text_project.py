@@ -118,7 +118,8 @@ if local_file != '':
         tts1.save('file_name.mp3')
         audio_file = open('file_name.mp3', "rb")
         st.audio(data=audio_file, format="audio/mp3", start_time=0
-    st.download_button('Download corrected text', result2)
+
+        st.download_button('Download corrected text', result2)
 
     choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
     deepl_api = st.secrets['deeplAPI']
