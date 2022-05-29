@@ -104,7 +104,8 @@ if local_file != ' ':
                 result1 = result1 + " " + updated_docx
                 new_doc = TextBlob(updated_docx)
                 result2 = result2 + str(new_doc.correct())
-
+                tts1=gTTS(text= result2, lang= source_lan)
+                tts1.save('file_name.mp3')
 else:
     pass
 
@@ -114,8 +115,6 @@ with col1:
     st.write('the original text is:', result1)                
 with col2:
     st.write('the corrected text is:', result2)
-    tts1=gTTS(text= result2, lang= source_lan)
-    tts1.save('file_name.mp3')
     audio_file = open('file_name.mp3', "rb")
     st.audio(data=audio_file, format="audio/mp3", start_time=0
 
