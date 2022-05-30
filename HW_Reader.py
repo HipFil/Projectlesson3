@@ -143,7 +143,7 @@ if choice == "yes":
         st.download_button('Download translated text', translated_text)
     
 else:
-    st.write("alright then, see you next time!)
+    st.write("alright then, see you next time!")
           
 st.subheader('Credits:')
  
