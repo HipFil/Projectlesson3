@@ -140,7 +140,8 @@ if choice == "yes":
     result3 = translator.translate_text(result2, target_lang = tg ) 
     translated_text = result3.text
     st.write(translated_text)
-          
+    st.download_button('Download translated text', translated_text)
+    
 else:
     pass
           
