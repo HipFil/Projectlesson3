@@ -38,7 +38,7 @@ with col2:
     st.write('''Hello user! I am HW-Reader, a simple app to read, correct and translate your handwritten texts and notes.''')
     st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text if needed 4. select the language and translate the text.''')
 
-source_lan = st.selectbox('give me a 2 letter word of your file langauge: ', ["BG",
+source_lan = st.selectbox('give me a 2 letter word of your file langauge: ', [" ","BG",
         "CS",
         "DA",
         "DE",
@@ -143,7 +143,7 @@ if choice == "yes":
         st.download_button('Download translated text', translated_text)
     
 else:
-    pass
+    st.write("alright then, see you next time!)
           
 st.subheader('Credits:')
  
