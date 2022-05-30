@@ -40,7 +40,7 @@ with col2:
     st.write('''Hello user! I am HW-Reader, a simple app to read, correct and translate your handwritten texts and notes.''')
     st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text if needed 4. select the language and translate the text.''')  
 
-source_lan = st.multiselect('give me a 2 letter word of your file language: ', ["BG",
+source_lan = st.selectbox('give me a 2 letter word of your file language: ', ["BG",
         "CS",
         "DA",
         "DE",
@@ -120,7 +120,7 @@ st.download_button('Download corrected text', result2)
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
 deepl_api = st.secrets['deeplAPI']
 if choice == "yes":
-    tg= st.multiselect('Give the target language: ', ["BG",
+    tg= st.selectbox('Give the target language: ', ["BG",
         "CS",
         "DA",
         "DE",
