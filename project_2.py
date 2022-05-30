@@ -137,8 +137,8 @@ if choice == "yes":
    
                 
     translator = deepl.Translator('d37742cb-dee7-e7cf-18f9-187511f581bd:fx') 
-    result = translator.translate_text(result1, target_lang = tg ) 
-    translated_text = result.text
+    result3 = translator.translate_text(result2, target_lang = tg ) 
+    translated_text = result3.text
     st.write(translated_text)
           
 else:
