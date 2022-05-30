@@ -115,9 +115,9 @@ with col1:
     st.write('the original text is:', result1)                
 with col2:
     st.write('the corrected text is:', result2)
-    audio_file = open('file_name.mp3', "rb")
-    st.audio(data=audio_file, format="audio/mp3", start_time=0
-
+   
+audio_file = open('file_name.mp3', "rb")
+st.audio(data=audio_file, format="audio/mp3", start_time=0
 st.download_button('Download corrected text', result2)
 
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
