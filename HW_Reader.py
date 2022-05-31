@@ -77,7 +77,7 @@ if uploaded_file is not None:
     image = Image.open(uploaded_file)
     st.image(uploaded_file)
     
-    response = cv_client.read_in_stream(Image.open(uploaded_file, 'rb'), Language= source_lan, raw=True)
+    response = cv_client.read_in_stream(open(Image.open(uploaded_file), 'rb'), Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     operation_id = operationLocation.split('/')[-1]
     time.sleep(1)
