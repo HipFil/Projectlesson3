@@ -69,7 +69,7 @@ result1 = ""
 result2 = ""
 
 st.subheader("upload your image")
-#st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" > "upload file". Once the image is displayed commit the file''')
+st.write('''click on the following link: https://postimages.org/ and add your file through "choose your images". Then copy the direct link (url.jpg)''')
 image_url = st.text_input('paste here your url')
 if image_url != ' ':
     
