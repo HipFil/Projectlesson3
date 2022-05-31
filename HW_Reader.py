@@ -72,9 +72,6 @@ st.subheader("upload your image")
 #st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" > "upload file". Once the image is displayed commit the file''')
 image_url = st.text_input('paste here your url')
 if image_url != ' ':
-  
-    image = Image.open(image_url)
-    st.image(image_url)
     
     response = cv_client.read(url = image_url, Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
