@@ -68,16 +68,15 @@ source_lan = st.selectbox('give me a 2 letter word of your file langauge: ', [" 
 result1 = ""
 result2 = ""
 
-#st.subheader("upload your image")
+st.subheader("upload your image")
 #st.write('''click on the following link: https://github.com/HipFil/Projectlesson3 and add your file through "add file" > "upload file". Once the image is displayed commit the file''')
-#local_file = st.text_input('write "name_of_your_file.jpg"', ' ')
-#if local_file != ' ':
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:    
-    image = Image.open(uploaded_file)
-    st.image(uploaded_file)
+image_url = st.text_input('paste here your url')
+if image_url != ' ':
+  
+    image = Image.open(image_url)
+    st.image(image_url)
     
-    response = cv_client.read_in_stream(open(Image.open(uploaded_file), 'rb'), Language= source_lan, raw=True)
+    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     operation_id = operationLocation.split('/')[-1]
     time.sleep(1)
