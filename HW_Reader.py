@@ -73,8 +73,8 @@ st.subheader("upload your image")
 image_url = st.text_input('paste here your url')
 if image_url != ' ':
   
-    image = Image.open(image_url)
-    st.image(image_url)
+    #image = Image.open(image_url)
+    #st.image(image_url)
     
     response = cv_client.read(url = image_url, Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
