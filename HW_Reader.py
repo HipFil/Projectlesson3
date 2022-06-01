@@ -73,7 +73,7 @@ st.write('''click on the following link: https://postimages.org/ and add your fi
 image_url = st.text_input('paste here your url')
 if image_url != ' ':
     
-    response = cv_client.read(url = image_url, Language= source_lan, raw=True)
+    response = cv_client.read(image_url, Language= source_lan, raw=True)
     operationLocation = response.headers['Operation-Location']
     operation_id = operationLocation.split('/')[-1]
     time.sleep(1)
