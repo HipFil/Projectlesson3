@@ -92,7 +92,9 @@ if image_url != ' ':
                 result1 = result1 + " " + updated_docx
                 new_doc = TextBlob(updated_docx)
                 result2 = result2 + str(new_doc.correct())
-                
+else:
+    pass
+ 
 col1, col2 = st.columns(2)
 
 with col1:
