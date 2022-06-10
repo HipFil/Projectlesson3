@@ -12,6 +12,7 @@ from azure.cognitiveservices.vision.computervision.models import OperationStatus
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from textblob import TextBlob
+from gtts import gTTS
 import re
 import deepl
 from deepl import Translator
