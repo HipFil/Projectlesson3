@@ -37,7 +37,7 @@ with col1:
     st.image(image)
 with col2:
     st.write('''Hello user! I am HW-Reader, a simple app to read, correct and translate your handwritten texts and notes.''')
-    st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text if needed 4. select the language and translate the text 5. download the translated text''')
+    st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text 4. listen and download the audio if needed 5. select the language and translate the text 6. download the translated text''')
 
 source_lan = st.selectbox('select the language of your image file: ', [" ","bg",
         "cs",
@@ -95,7 +95,8 @@ if image_url != ' ':
                 result2 = result2 + str(new_doc.correct())
 else:
     pass
- 
+
+st.markdown("""---""")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -104,7 +105,7 @@ with col2:
     st.write('the corrected text is:', result2)
 
 st.download_button('Download the corrected text', result2)
-st.write("click here and I read the file for you")
+st.write(" If you click here I can read the file for you:")
 sentence=gTTS(text=result2, lang =source_lan)
 sentence.save('file_name.mp3')
 audio_file= open('file_name.mp3', "rb")
