@@ -104,6 +104,11 @@ with col2:
     st.write('the corrected text is:', result2)
 
 st.download_button('Download the corrected text', result2)
+sentence=gTTS(text=result2, lang =source_lan)
+sentence.save('file_name.mp3')
+audio_file= open('file_name.mp3', "rb")
+st.audio(data=audio_file, format="audio/mp3", start_time=0)
+st.download_button(label= "download the audio file", data= audio_file, file_name="new_text_audio", mime="audio/mp3")
 
 st.markdown("""---""")
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
