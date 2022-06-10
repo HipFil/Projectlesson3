@@ -36,9 +36,9 @@ with col1:
     st.image(image)
 with col2:
     st.write('''Hello user! I am HW-Reader, a simple app to read, correct and translate your handwritten texts and notes.''')
-    st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text if needed 4. select the language and translate the text.''')
+    st.write('''Before you start, let me briefly explain how I work: 1. select the language of your text file 2. upload a photo of your text 3. download the corrected text if needed 4. select the language and translate the text 5. download the translated text''')
 
-source_lan = st.selectbox('give me a 2 letter word of your file langauge: ', [" ","BG",
+source_lan = st.selectbox('select the language of your image file: ', [" ","BG",
         "CS",
         "DA",
         "DE",
@@ -103,7 +103,7 @@ with col1:
 with col2:
     st.write('the corrected text is:', result2)
 
-st.download_button('Download corrected text', result2)
+st.download_button('Download the corrected text', result2)
 
 st.markdown("""---""")
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
@@ -141,7 +141,7 @@ if choice == "yes":
         result3 = translator.translate_text(result2, target_lang = tg ) 
         translated_text = result3.text
         st.write(translated_text)
-        st.download_button('Download translated text', translated_text)
+        st.download_button('Download the translated text', translated_text)
     else:
         pass
     
