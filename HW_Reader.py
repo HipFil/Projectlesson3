@@ -104,6 +104,7 @@ with col2:
     st.write('the corrected text is:', result2)
 
 st.download_button('Download the corrected text', result2)
+st.write("click here and I read the file for you")
 sentence=gTTS(text=result2, lang =source_lan)
 sentence.save('file_name.mp3')
 audio_file= open('file_name.mp3', "rb")
