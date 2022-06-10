@@ -68,6 +68,7 @@ source_lan = st.selectbox('give me a 2 letter word of your file langauge: ', [" 
 result1 = ""
 result2 = ""
 
+st.markdown("""---""")
 st.subheader("upload your image")
 st.write('''click on the following link: https://postimages.org/ and add your file through "choose your images". Then copy the direct link (url.jpg)''')
 image_url = st.text_input('paste here your url')
@@ -103,7 +104,8 @@ with col2:
     st.write('the corrected text is:', result2)
 
 st.download_button('Download corrected text', result2)
- 
+
+st.markdown("""---""")
 choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
 deepl_api = st.secrets['deeplAPI']
 if choice == "yes":
@@ -145,7 +147,8 @@ if choice == "yes":
     
 else:
     st.write("alright then, see you next time!")
-          
+
+st.markdown("""---""")
 st.subheader('Credits:')
  
 st.write('For the image: https://media.istockphoto.com/vectors/text-reading-bot-glyph-icon-screen-reader-application-virtual-robot-vector-id1206206967?b=1&k=20&m=1206206967&s=170667a&w=0&h=A5yLjH3V5lwFiSP2uIes5tr4WIiLy6sE1xJBlGqKVWE= ')
