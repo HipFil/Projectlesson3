@@ -113,7 +113,7 @@ st.audio(data=audio_file, format="audio/mp3", start_time=0)
 st.download_button(label= "download the audio file", data= audio_file, file_name="new_text_audio", mime="audio/mp3")
 
 st.markdown("""---""")
-choice = st.radio("'Do you want to translate the text?", ("yes", "no"))
+choice = st.radio("do you want to translate the text?", ("yes", "no"))
 deepl_api = st.secrets['deeplAPI']
 if choice == "yes":
     tg= st.selectbox('Give the target language: ', [" ","BG",
@@ -158,6 +158,7 @@ else:
 st.markdown("""---""")
 st.subheader('Credits:')
  
-st.write('For the image: https://media.istockphoto.com/vectors/text-reading-bot-glyph-icon-screen-reader-application-virtual-robot-vector-id1206206967?b=1&k=20&m=1206206967&s=170667a&w=0&h=A5yLjH3V5lwFiSP2uIes5tr4WIiLy6sE1xJBlGqKVWE= ')
+st.write('For the cover image: https://media.istockphoto.com/vectors/text-reading-bot-glyph-icon-screen-reader-application-virtual-robot-vector-id1206206967?b=1&k=20&m=1206206967&s=170667a&w=0&h=A5yLjH3V5lwFiSP2uIes5tr4WIiLy6sE1xJBlGqKVWE= ')
 st.write('Handwritten text extraction code tutorial: https://www.youtube.com/watch?v=7A38m5Dayk8&t=1284s')
-st.write("This is a project for the Computer Programming course (University of Bolzano)")
+st.write('image url converter: https://postimages.org/')
+st.write("This is a project for the Computer Programming course (Free University of Bolzano)")
